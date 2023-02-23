@@ -1,5 +1,6 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { ProductsService, Product } from '../../services/products.service';
+import { Car, CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,17 +8,17 @@ import { ProductsService, Product } from '../../services/products.service';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent {
-  products: Product[];
-  selectedProduct: Product = { name: '', price: 0, image: '', description: '' };
+  products: Car[];
+  selectedProduct: Car;
 
-  constructor(private productService: ProductsService) { }
+  constructor(private carService: CarService) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.productService.getAll()
-      .subscribe(products => this.products = products);
+    this.carService.getCars()
+      .subscribe(cars => this.products = cars);
   }
 }

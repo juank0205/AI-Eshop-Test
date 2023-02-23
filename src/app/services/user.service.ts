@@ -12,7 +12,7 @@ export interface User {
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = 'http://localhost:3001/users';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<User[]>(`${this.baseUrl}`);
   }
 
-  login(username: string, password: string): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${username}/${password}`);
+  login(username: string, password: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/${username}/${password}`);
   }
 }
