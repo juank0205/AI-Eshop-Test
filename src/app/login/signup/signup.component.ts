@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { UserService, User } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class AuthComponent implements OnInit{
+export class SignupComponent implements OnInit{
   loginForm: FormGroup;
   errorMessage: string;
 
@@ -20,22 +20,11 @@ export class AuthComponent implements OnInit{
       password: ['', Validators.required]
     });
   }
-  
-  signup() {
-    this.router.navigate(['/signup']);
-  }
-
   onSubmit() {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-      this.userService.login(username, password).subscribe((user: User[]) => {
-        if (user.length != 0) {
-          // Login successful, navigate to home page
-          this.router.navigate(['/']);
-        } else {
-          // Login failed, display error message
-          alert("Incorrect username or password")
-        }
+      this.userService.signup(username, password).subscribe((message: any) => {
+        alert('User created successfully');
       }, (error) => {
         // Handle error from server
         alert("Incorrect username or password")

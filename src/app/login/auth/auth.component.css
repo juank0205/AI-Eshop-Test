@@ -1,16 +1,23 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .card-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 500px;
-  }
-  
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 500px;
+}
+
+.link {
+  text-decoration: underline;
+  color: #3f51b5;
+}
+
+.link:hover {
+  cursor: pointer;
+}

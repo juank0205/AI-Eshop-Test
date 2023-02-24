@@ -24,10 +24,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginModule } from './login/login.module';
 import { CardsComponent } from './shop/cards/cards.component';
 import { AuthComponent } from './login/auth/auth.component';
+import { SignupComponent } from './login/signup/signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'shop', pathMatch: 'full' },
   { path: 'shop', component: CardsComponent },
+  { path: 'signup', component: SignupComponent},
   { path: 'login', component: AuthComponent}
 ];
 
